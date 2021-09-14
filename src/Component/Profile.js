@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withRouter} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 
 class Profile extends Component {
     constructor(props) {
@@ -10,7 +10,7 @@ class Profile extends Component {
         }
     }
 
-    componentDidMount() {
+    componentDidMount(){
         fetch("http://localhost:8080/api/v1/users/me",{
             method:"GET",
             headers:{
@@ -30,6 +30,7 @@ class Profile extends Component {
             }
             return response.json()
         }).then(response =>{
+            console.log(response.result.landingData)
             this.setState({
                 profile:response.result
             })

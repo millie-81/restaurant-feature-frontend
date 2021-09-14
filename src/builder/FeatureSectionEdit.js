@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
+import {withRouter} from "react-router-dom";
 
 class FeatureSectionEdit extends Component {
     constructor(props) {
         super(props);
-        this.state ={
+        this.state = {
 
         }
     }
@@ -16,4 +17,4 @@ class FeatureSectionEdit extends Component {
     }
 }
 
-export default FeatureSectionEdit;
+export default withRouter(FeatureSectionEdit);

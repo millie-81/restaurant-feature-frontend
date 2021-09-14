@@ -14,6 +14,8 @@ import Register from "./Component/Register";
 import Login from "./Component/Login";
 import Profile from "./Component/Profile";
 import Manage from "./Component/manage";
+import FeatureSectionEdit from "./builder/FeatureSectionEdit";
+
 
 
 const FAKE_DATA = {
@@ -54,6 +56,7 @@ const FAKE_DATA = {
 export class App extends React.Component {
     render() {
         return (
+
             <Router>
                 <div>
                     <nav>
@@ -83,6 +86,10 @@ export class App extends React.Component {
                         <Route path="/manage" exact={true}>
                             <Manage />
                         </Route>
+                        <Route path="/features" exact={true}>
+                            <FeatureSectionEdit />
+                        </Route>
+
                         {/*<Route path="/landings/me/features/add" exact={true}>*/}
                         {/*    <Login />*/}
                         {/*</Route>*/}

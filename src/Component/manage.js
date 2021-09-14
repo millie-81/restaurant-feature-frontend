@@ -9,9 +9,9 @@ class Manage extends Component {
                    <button>profile</button>
                 </Link>
 
-                {/*<Link to={"/features"}>*/}
-                {/*    <button>features</button>*/}
-                {/*</Link>*/}
+                <Link to={"/features"}>
+                <button>features</button>
+                </Link>
             </div>
         );
     }
