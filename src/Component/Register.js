@@ -2,6 +2,17 @@ import React, {Component} from 'react';
 import {isEmpty} from "../util/helper";
 import { Route , withRouter} from 'react-router-dom'
 
+const Position = {
+    textAlign:"center",
+    width:"100%"
+}
+
+const Input = {
+    width:"100%",
+    borderRadius:"4px",
+    border:"1px solid"
+}
+
 const initFormData = {
     formData:{
         username:"",
@@ -97,25 +108,26 @@ class Register extends Component {
 
     render() {
         return (
-            <div>
-                <form class={"form"} onSubmit={this.handleSubmit}>
+            <div className={"bg-image"}>
+                <form class={"form"} style={Position} onSubmit={this.handleSubmit}>
                     <h2>registration</h2>
                     {this.state.response.length > 0 &&<div className={"alert alert-danger"}>{this.state.response}</div>}
                     <div>
                         <label className={"label"}>username</label>
-                        <input name={"username"} value={this.state.formData.username} type={"text"} onChange={this.handleInputChange}/>
+                        <input  style={Input} name={"username"} value={this.state.formData.username} type={"text"} onChange={this.handleInputChange}/>
                         <div className={"text-danger"}>{this.state.errors.username}</div>
                     </div>
                     <div>
                         <label className={"label"}>password</label>
-                        <input name={"password"} value={this.state.formData.password} type={"password"} onChange={this.handleInputChange}/>
+                        <input style={Input} name={"password"} value={this.state.formData.password} type={"password"} onChange={this.handleInputChange}/>
                         <div className={"text-danger"}>{this.state.errors.password}</div>
                     </div>
                     <div>
                         <label className={"label"}>confirm password</label>
-                        <input name={"confirmPassword"} value={this.state.formData.confirmPassword} type={"password"} onChange={this.handleInputChange}/>
+                        <input style={Input} name={"confirmPassword"} value={this.state.formData.confirmPassword} type={"password"} onChange={this.handleInputChange}/>
                         <div className={"text-danger"}>{this.state.errors.confirmPassword}</div>
                     </div>
+                    <br/>
                     <button type={"submit"}>register</button>
                 </form>
             </div>

@@ -2,6 +2,17 @@ import React, {Component} from 'react';
 import {isEmpty} from "../util/helper";
 import { Route , withRouter} from 'react-router-dom'
 
+const Input = {
+    width:"100%",
+    borderRadius:"4px",
+    border:"1px solid"
+}
+
+const Position = {
+    textAlign:"center",
+    width:"100%"
+}
+
 const initFormData = {
     formData:{
         username:"",
@@ -56,7 +67,7 @@ class Login extends Component {
                 return response.json()
             }).then(response =>{
                 localStorage.setItem("token",response.result)
-                this.props.history.push("/manage")
+                this.props.history.push(`/manage/${this.state.formData.username}`)
             }).catch((error) =>{
                 this.setState({
                     ...initFormData,
@@ -85,19 +96,21 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div className={"bg-image"}>
+                <form onSubmit={this.handleSubmit} style={Position}>
+                    <h2>Login</h2>
                     {this.state.response.length > 0 && <div className={"alert alert-danger"}>{this.state.response}</div>}
                     <div>
                         <label className={"label"}>username</label>
-                        <input name={"username"} type={"text"}  value={this.state.formData.username} onChange={this.handleInputChange}/>
+                        <input style={Input} name={"username"} type={"text"}  value={this.state.formData.username} onChange={this.handleInputChange}/>
                         <div className={"text-danger"}>{this.state.errors.username}</div>
                     </div>
                     <div>
                         <label className={"label"}>password</label>
-                        <input name={"password"} type={"password"}  value={this.state.formData.password} onChange={this.handleInputChange}/>
+                        <input style={Input} name={"password"} type={"password"}  value={this.state.formData.password} onChange={this.handleInputChange}/>
                         <div className={"text-danger"}>{this.state.errors.password}</div>
                     </div>
+                    <br />
                     <button className={"button"}  type={"submit"}>login</button>
                 </form>
             </div>
