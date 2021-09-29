@@ -53,7 +53,6 @@ class RegisterOrLogin extends Component {
 
 
         return (
-
             <div className={"bg-image"}>
                 <Link to="/login">
                    <button style={loginButtonStyle}>login</button>

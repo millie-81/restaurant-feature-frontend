@@ -45,6 +45,7 @@ class CreateFeature extends Component {
                 this.setState({
                     features:response.result
                 })
+                this.props.history.push(`/features`)
             }).catch((error) =>{
                 this.setState({
                     response:error.message
@@ -81,20 +82,40 @@ class CreateFeature extends Component {
     }
 
     render() {
+        const Position = {
+            textAlign:"center",
+            width:"100%"
+        }
+        const Input = {
+            width:"70%",
+            borderRadius:"4px",
+            border:"1px solid"
+        }
         return (
-            <div>
-                {this.state.response.length > 0 && <div className={"alert alert-danger"}>{this.state.response}</div>}
-                <form onSubmit={this.handleSubmit}>
-                    <label>iconUrl</label>
-                    <input name={"iconUrl"} value={this.state.features.iconUrl} onChange={this.handleInputChange} />
-                    <div className={"text-danger"}>{this.state.errors.iconUrl}</div>
-                    <label>description</label>
-                    <input name={"description"} value={this.state.features.description} onChange={this.handleInputChange} />
-                    <div className={"text-danger"}>{this.state.errors.description}</div>
-                    <label>title</label>
-                    <input name={"title"} value={this.state.features.title} onChange={this.handleInputChange} />
-                    <div className={"text-danger"}>{this.state.errors.title}</div>
-                    <button type={"submit"}>create</button>
+            <div className={"bg-image"}>
+                <form className={"form"} onSubmit={this.handleSubmit} style={Position}>
+                    {this.state.response.length > 0 && <div className={"alert alert-danger"}>{this.state.response}</div>}
+                    <div>
+                        <label className={"label"}>iconUrl</label>
+                        <br />
+                        <input style={Input} name={"iconUrl"} value={this.state.features.iconUrl} onChange={this.handleInputChange} />
+                        <div className={"text-danger"}>{this.state.errors.iconUrl}</div>
+                    </div>
+                    <div>
+                        <label className={"label"}>description</label>
+                        <br />
+                        <input style={Input} name={"description"} value={this.state.features.description} onChange={this.handleInputChange} />
+                        <div className={"text-danger"}>{this.state.errors.description}</div>
+                    </div>
+                    <div>
+                        <label className={"label"}>title</label>
+                        <br />
+                        <input style={Input} name={"title"} value={this.state.features.title} onChange={this.handleInputChange} />
+                        <div className={"text-danger"}>{this.state.errors.title}</div>
+                    </div>
+                    <br />
+
+                    <button className={"button"} type={"submit"}>create</button>
                 </form>
             </div>
         );

@@ -26,14 +26,8 @@ export class App extends React.Component {
 
             <Router>
                 <div>
-                    <nav>
-                        <ul>
-                            <li>
-                                <Link to="/">home</Link>
-                            </li>
-
-                        </ul>
-                    </nav>
+                    {/*<nav>*/}
+                    {/*</nav>*/}
 
                     {/* A <Switch> looks through its children <Route>s and
         renders the first one that matches the current URL. */}

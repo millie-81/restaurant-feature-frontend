@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {isEmpty} from "../util/helper";
-import { Route , withRouter} from 'react-router-dom'
+import {Link, Route, withRouter} from 'react-router-dom'
 
 const Position = {
     textAlign:"center",
@@ -109,7 +109,12 @@ class Register extends Component {
     render() {
         return (
             <div className={"bg-image"}>
-                <form class={"form"} style={Position} onSubmit={this.handleSubmit}>
+                <div className={"homeStyle"}>
+                    <Link to={"/"}>
+                        <button>home</button>
+                    </Link>
+                </div>
+                <form className={"form"} style={Position} onSubmit={this.handleSubmit}>
                     <h2>registration</h2>
                     {this.state.response.length > 0 &&<div className={"alert alert-danger"}>{this.state.response}</div>}
                     <div>

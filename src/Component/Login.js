@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {isEmpty} from "../util/helper";
-import { Route , withRouter} from 'react-router-dom'
+import {Link, Route, withRouter} from 'react-router-dom'
 
 const Input = {
     width:"100%",
@@ -97,6 +97,11 @@ class Login extends Component {
     render() {
         return (
             <div className={"bg-image"}>
+                <div className={"homeStyle"}>
+                    <Link to={"/"}>
+                        <button>home</button>
+                    </Link>
+                </div>
                 <form onSubmit={this.handleSubmit} style={Position}>
                     <h2>Login</h2>
                     {this.state.response.length > 0 && <div className={"alert alert-danger"}>{this.state.response}</div>}

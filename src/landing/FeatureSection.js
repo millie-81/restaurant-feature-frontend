@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {withRouter} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
+import {Row} from "react-bootstrap";
 
 class FeatureSection extends Component {
     constructor(props) {
@@ -38,22 +39,39 @@ class FeatureSection extends Component {
 
 
     render() {
+        const blockColor = {
+            backgroundColor:"lightslategray",
+            width:"20%",
+            display:"inline-block",
+            marginLeft:"20px"
+        }
         return (
-            <div>
-                {this.state.response.length > 0 && <div className={"alert alert-danger"}>{this.state.response}</div>}
-                <h1>Headers</h1>
-                <h1>Features</h1>
-
+            <div className={"bg-image"}>
+                <div className={"homeStyle"}>
+                    <Link to={"/"}>
+                        <button>home</button>
+                    </Link>
+                </div>
+                <br />
+                <br />
                 <div>
-                    {this.state.features.map((item) =>{
-                        return(
-                            <div key={item.id}>
-                                <i className={item.iconUrl} alt={item.description}></i>
-                                <p>{item.title}</p>
-                                &nbsp;
-                            </div>
-                        )
-                    })}
+                    {this.state.response.length > 0 && <div className={"alert alert-danger"}>{this.state.response}</div>}
+                    <h1>Headers</h1>
+                    <hr />
+                    <div>
+                        {this.state.features.map((item) =>{
+                            return(
+                                <p style={blockColor} key={item.id}>
+                                    <p style={{textAlign:"center"}}>
+                                        <i className={item.iconUrl} alt={item.description}></i>
+                                        <br/>
+                                        <p>{item.title}</p>
+                                    </p>
+                                </p>
+
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
         );

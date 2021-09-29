@@ -71,29 +71,32 @@ class FeatureSectionEdit extends Component {
 
     render() {
         return (
-            <div>
+            <div className={"bg-image"}>
                 {this.state.response.length > 0 && <div className={"alert alert-danger"}>{this.state.response}</div>}
                 <h3>FEATURES</h3>
                 <Link to={"/createFeature"}>
-                    <button>Add features</button>
+                    <button className={"button"}>Add features</button>
                 </Link>
-                <div>
+                <div style={{textAlign:"center"}}>
                     {this.state.features.map((item) =>{
                         return(
                             <div key={item.id}>
-                                <i className={item.iconUrl} alt={item.description}></i>
-                                &nbsp;
-                                <Link to={`/updateFeature/${item.id}`}>
-                                    {item.title}
-                                </Link>
-                                &nbsp;
-                                <button onClick={(e) =>{
-                                    e.preventDefault()
-                                    this.handleDelete(e,item.id)
-                                }
-                                }>
-                                    delete
-                                </button>
+                                <div>
+                                    <i className={item.iconUrl} alt={item.description}></i>
+                                    &nbsp;
+                                    <Link to={`/updateFeature/${item.id}`}>
+                                        {item.title}
+                                    </Link>
+                                    &nbsp;
+                                    <button onClick={(e) =>{
+                                        e.preventDefault()
+                                        this.handleDelete(e,item.id)
+                                    }
+                                    } className={"deleteButton"}>
+                                        delete
+                                    </button>
+                                </div>
+                                <br />
                             </div>
                         )
                     })}

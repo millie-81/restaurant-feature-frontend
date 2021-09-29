@@ -76,20 +76,33 @@ class UpdateFeature extends Component {
 
     render() {
         return (
-            <div>
+            <div className={"bg-image"}>
                 {this.state.response.length > 0 && <div className={"alert alert-danger"}>{this.state.response}</div>}
                 <form onSubmit={(e) =>{
                     e.preventDefault()
                     this.handleSubmit(e,this.props.match.params.id)
                 }
-                }>
-                    <label>iconUrl</label>
-                    <input name={"iconUrl"} defaultValue={this.state.features.iconUrl} onChange={this.handleInputChange} />
-                    <label>description</label>
-                    <input name={"description"} defaultValue={this.state.features.description} onChange={this.handleInputChange}/>
-                    <label>title</label>
-                    <input name={"title"} defaultValue={this.state.features.title} onChange={this.handleInputChange}/>
-                    <button type={"submit"}>update</button>
+                } style={{textAlign:"center"}}>
+                    <div>
+                        <label>iconUrl</label>
+                        <br />
+                        <input name={"iconUrl"} defaultValue={this.state.features.iconUrl} onChange={this.handleInputChange} />
+                    </div>
+                    <div>
+                        <label>description</label>
+                        <br />
+                        <input name={"description"} defaultValue={this.state.features.description} onChange={this.handleInputChange}/>
+                    </div>
+                    <div>
+                        <label>title</label>
+                        <br />
+                        <input name={"title"} defaultValue={this.state.features.title} onChange={this.handleInputChange}/>
+                    </div>
+                    <br />
+                    <div>
+                        <button className={"button"} type={"submit"}>update</button>
+                    </div>
+
                 </form>
             </div>
         );
