@@ -51,6 +51,10 @@ class CreateFeature extends Component {
                     response:error.message
                 })
             })
+        }else{
+            this.setState({
+                errors:errors
+            })
         }
     }
 
@@ -98,19 +102,19 @@ class CreateFeature extends Component {
                     <div>
                         <label className={"label"}>iconUrl</label>
                         <br />
-                        <input style={Input} name={"iconUrl"} value={this.state.features.iconUrl} onChange={this.handleInputChange} />
+                        <input style={Input} name={"iconUrl"} value={this.state.features.iconUrl} type={"text"} onChange={this.handleInputChange} />
                         <div className={"text-danger"}>{this.state.errors.iconUrl}</div>
                     </div>
                     <div>
                         <label className={"label"}>description</label>
                         <br />
-                        <input style={Input} name={"description"} value={this.state.features.description} onChange={this.handleInputChange} />
+                        <input style={Input} name={"description"} value={this.state.features.description} type={"text"} onChange={this.handleInputChange} />
                         <div className={"text-danger"}>{this.state.errors.description}</div>
                     </div>
                     <div>
                         <label className={"label"}>title</label>
                         <br />
-                        <input style={Input} name={"title"} value={this.state.features.title} onChange={this.handleInputChange} />
+                        <input style={Input} name={"title"} value={this.state.features.title} type={"text"} onChange={this.handleInputChange} />
                         <div className={"text-danger"}>{this.state.errors.title}</div>
                     </div>
                     <br />
